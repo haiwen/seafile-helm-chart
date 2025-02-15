@@ -46,8 +46,8 @@ This is a public repository for storing charts related to quick deployment of Se
 
     The placeholder `<type of deployment>` can be `pro`, `ce` and `cluster`
 
-    >[!TIP]
-    >It is not necessary to use the `my-values.yaml` we provided (i.e., you can create an empty `my-values.yaml` and add required field, as others have defined default values in our chart), because it destroys the flexibility of deploying with Helm, but it contains some formats of how Seafile Helm Chart reads these configurations, as well as all the environment variables and secret variables that can be read directly.
+>[!TIP]
+>It is not necessary to use the `my-values.yaml` we provided (i.e., you can create an empty `my-values.yaml` and add required field, as others have defined default values in our chart), because it destroys the flexibility of deploying with Helm, but it contains some formats of how Seafile Helm Chart reads these configurations, as well as all the environment variables and secret variables that can be read directly.
 
 - To install the chart use the following:
 
