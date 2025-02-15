@@ -1,5 +1,5 @@
 apiVersion: v2
-name: seafile-cluster
+name: cluster
 description: Helm chart for Seafile cluster.
 type: application
 version: "12.0"
