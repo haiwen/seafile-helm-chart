@@ -1,0 +1,98 @@
+seafile:
+  initMode: true
+  configs: {} # seafile container configurations, object
+  env: {} # environment variables for seafile service, object
+  secretsMap: {} # seafile services secrets env, object
+  
+  # extra infomations object(frontend, backend)
+  extraResources: 
+    frontend: {}
+    backend: {}
+  extraEnv:
+    frontend: []
+    backend: []
+  extraVolumes: 
+    frontend: []
+    backend: []
+
+  # Default
+  presetEnv:
+    # for Seafile server
+    - name: TIME_ZONE
+      value: "UTC"
+    - name: SEAFILE_LOG_TO_STDOUT
+      value: "true"
+    - name: SITE_ROOT
+      value: "/"
+    - name: ENABLE_SEADOC
+      value: "false"
+    - name: SEADOC_SERVER_URL
+      allowEmpty: true
+    - name: SEAFILE_SERVER_HOSTNAME
+    - name: SEAFILE_SERVER_PROTOCOL
+      value: "https"
+
+    # for database
+    - name: DB_HOST
+    - name: DB_PORT
+      value: "3306"
+    - name: DB_USER
+      value: "seafile"
+    - name: SEAFILE_MYSQL_DB_CCNET_DB_NAME
+      value: "ccnet_db"
+    - name: SEAFILE_MYSQL_DB_SEAFILE_DB_NAME
+      value: "seafile_db"
+    - name: SEAFILE_MYSQL_DB_SEAHUB_DB_NAME
+      value: "seahub_db"
+
+    # initialization
+
+    ## for Seafile admin
+    - name: INIT_SEAFILE_ADMIN_EMAIL
+      initValue: true
+    
+    ## for cluster basic service
+    - name: CLUSTER_INIT_MEMCACHED_HOST
+      initValue: true
+    - name: CLUSTER_INIT_ES_HOST
+      initValue: true
+    - name: CLUSTER_INIT_ES_PORT
+      value: "9200"
+
+    ## For S3 storage backend (only valid in INIT_S3_STORAGE_BACKEND_CONFIG = true)
+    - name: INIT_S3_STORAGE_BACKEND_CONFIG
+      value: "false"
+    - name: INIT_S3_COMMIT_BUCKET
+      allowEmpty: true
+    - name: INIT_S3_FS_BUCKET
+      allowEmpty: true
+    - name: INIT_S3_BLOCK_BUCKET
+      allowEmpty: true
+    - name: INIT_S3_KEY_ID
+      allowEmpty: true
+    - name: INIT_S3_USE_V4_SIGNATURE
+      value: "true"
+    - name: INIT_S3_AWS_REGION
+      value: "us-east-1"
+    - name: INIT_S3_HOST
+      value: "s3.us-east-1.amazonaws.com"
+    - name: INIT_S3_USE_HTTPS
+      value: "true"
+
+  presetSecretsMap:
+    - name: DB_ROOT_PASSWD # Env's name
+      secret: seafile-secret
+      key: INIT_SEAFILE_MYSQL_ROOT_PASSWORD
+    - name: JWT_PRIVATE_KEY
+      secret: seafile-secret
+      key: JWT_PRIVATE_KEY
+    - name: DB_PASSWORD
+      secret: seafile-secret
+      key: SEAFILE_MYSQL_DB_PASSWORD
+    - name: INIT_SEAFILE_ADMIN_PASSWORD
+      secret: seafile-secret
+      key: INIT_SEAFILE_ADMIN_PASSWORD
+    - name: INIT_S3_SECRET_KEY
+      secret: seafile-secret
+      key: INIT_S3_SECRET_KEY
+    
