@@ -67,7 +67,7 @@ spec:
           volumeMounts:
             - name: seafile-data
               mountPath: /shared
-            {{- range .Values.seafile.extraVolumes }}
+            {{- range .Values.seafile.extraVolumes.frontend }}
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
               {{- if .subPath }}
