@@ -52,7 +52,7 @@ This is a public repository for storing charts related to quick deployment of Se
 - To install the chart use the following:
 
     ```sh
-    helm repo add seafile https://haiwen.github.io/seafile-helm-chart
+    helm repo add seafile https://haiwen.github.io/seafile-helm-chart/repo
     helm upgrade --install seafile seafile/<type of deployment>  --namespace seafile --create-namespace --values my-values.yaml
     ```
 
