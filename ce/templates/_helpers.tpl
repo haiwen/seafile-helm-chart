@@ -3,7 +3,7 @@
     {{- if .Values.seafile.configs.image }}
         {{- printf "%s" .Values.seafile.configs.image }}
     {{- else }}
-        {{- printf "seafileltd/seafile-ce-mc:%s-latest" .Chart.AppVersion }}
+        {{- printf "seafileltd/seafile-mc:%s-latest" .Chart.AppVersion }}
     {{- end }}
 {{- end }}
 

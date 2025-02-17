@@ -3,7 +3,7 @@ seafile:
 
   # The following are the configurations of seafile container
   configs:
-    image: seafileltd/seafile-ce-mc:12.0-latest 
+    image: seafileltd/seafile-mc:12.0-latest 
     seafileDataVolume: 
       hostPath: /opt/seafile/shared
       storage: 10Gi
