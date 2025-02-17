@@ -5,7 +5,7 @@ seafile:
   configs:
     image: seafileltd/seafile-pro-mc:12.0-latest 
     seafileDataVolume: 
-      hostPath: /opt/seafile/shared
+      hostPath: /opt/seafile-data
       storage: 10Gi
   
   # The following are environments of seafile services
