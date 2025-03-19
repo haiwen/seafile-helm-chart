@@ -39,6 +39,23 @@ seafile:
     - name: SEAFILE_MYSQL_DB_SEAHUB_DB_NAME
       value: "seahub_db"
 
+    # for cache
+    - name: CACHE_PROVIDER
+      value: "redis"
+
+    ## for redis
+    - name: REDIS_SERVER
+    - name: REDIS_PORT
+      value: 6379
+    - name: REDIS_PASSWORD
+      allowEmpty: true
+
+    ## for memcached
+    - name: MEMCACHED_SERVER
+      allowEmpty: true
+    - name: MEMCACHED_PORT
+      value: 11211
+
     # initialization
 
     ## for Seafile admin
