@@ -8,3 +8,6 @@ spec:
   resources:
     requests:
       storage: {{ include "seafile.seafileDataVolume.storage" . }}
+  {{- if and .Values.seafile.configs.seafileDataVolume .Values.seafile.configs.seafileDataVolume.storageClassName }}
+  storageClassName: {{ .Values.seafile.configs.seafileDataVolume.storageClassName }}
+  {{- end }}
