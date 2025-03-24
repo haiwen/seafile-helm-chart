@@ -7,8 +7,8 @@ jobs:
   lint:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-helm
+      - uses: actions/checkout@v3
+      - uses: azure/setup-helm@v1
 
       - name: Lint Helm charts
         run: |
