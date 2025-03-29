@@ -1,0 +1,12 @@
+apiVersion: v2
+name: cluster
+description: Helm chart for Seafile cluster.
+type: application
+version: "13.0"
+appVersion: "13.0"
+home: https://seafile.com
+sources:
+  - https://github.com/haiwen/seafile
+maintainers:
+  - name: seafileDocs
+icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
