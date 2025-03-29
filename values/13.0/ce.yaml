@@ -20,9 +20,9 @@ seafile:
     SEAFILE_SERVER_PROTOCOL: "https"
 
     # for database
-    DB_HOST: "<required>"
-    DB_PORT: "3306"
-    DB_USER: "seafile"
+    SEAFILE_MYSQL_DB_HOST: "<required>"
+    SEAFILE_MYSQL_DB_PORT: "3306"
+    SEAFILE_MYSQL_DB_USER: "seafile"
     SEAFILE_MYSQL_DB_CCNET_DB_NAME: "ccnet_db"
     SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: "seafile_db"
     SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: "seahub_db"
@@ -31,12 +31,11 @@ seafile:
     CACHE_PROVIDER: "redis"
 
     ## for redis
-    REDIS_SERVER: "<required>"
+    REDIS_HOST: "<your redis host, default `redis`>"
     REDIS_PORT: "6379"
-    REDIS_PASSWORD: ""
 
     ## for memcached
-    MEMCACHED_SERVER: "<memcached host if use>"
+    MEMCACHED_HOST: "<memcached host if use>"
     MEMCACHED_PORT: "11211"
 
     # initialization (only valid in first-time deployment and initMode = true)
