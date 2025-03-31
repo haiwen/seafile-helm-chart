@@ -38,6 +38,9 @@ seafile:
     MEMCACHED_HOST: "<memcached host if use>"
     MEMCACHED_PORT: "11211"
 
+    # S3
+    USE_S3_STORAGE: "false"
+
     # initialization (only valid in first-time deployment and initMode = true)
 
     ## for Seafile admin
