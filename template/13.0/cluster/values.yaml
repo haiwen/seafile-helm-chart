@@ -5,9 +5,15 @@ seafile:
   secretsMap: {} # seafile services secrets env, object
   
   # extra infomations object(frontend, backend)
-  extraResources: {}
-  extraEnv: []
-  extraVolumes: []
+  extraResources: 
+    frontend: {}
+    backend: {}
+  extraEnv:
+    frontend: []
+    backend: []
+  extraVolumes: 
+    frontend: []
+    backend: []
 
   # Default
   presetEnv:
@@ -38,20 +44,9 @@ seafile:
       value: "seafile_db"
     - name: SEAFILE_MYSQL_DB_SEAHUB_DB_NAME
       value: "seahub_db"
-
-    # for cache
-    - name: CACHE_PROVIDER
-      value: "redis"
-
-    ## for redis
-    - name: REDIS_HOST
-      allowEmpty: true
-    - name: REDIS_PORT
-      value: "6379"
-
-    ## for memcached
+    
+    # for memcached
     - name: MEMCACHED_HOST
-      allowEmpty: true
     - name: MEMCACHED_PORT
       value: "11211"
 
@@ -64,6 +59,12 @@ seafile:
     ## for Seafile admin
     - name: INIT_SEAFILE_ADMIN_EMAIL
       initValue: true
+    
+    ## for cluster basic service
+    - name: CLUSTER_INIT_ES_HOST
+      initValue: true
+    - name: CLUSTER_INIT_ES_PORT
+      value: "9200"
 
     ## For S3 storage backend (only valid in INIT_S3_STORAGE_BACKEND_CONFIG = true)
     - name: INIT_S3_COMMIT_BUCKET
@@ -104,7 +105,4 @@ seafile:
     - name: INIT_S3_SSE_C_KEY
       secret: seafile-secret
       key: INIT_S3_SSE_C_KEY
-    - name: REDIS_PASSWORD
-      secret: seafile-secret
-      key: REDIS_PASSWORD
     

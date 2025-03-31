@@ -27,10 +27,10 @@ seafile:
       value: "https"
 
     # for database
-    - name: DB_HOST
-    - name: DB_PORT
+    - name: SEAFILE_MYSQL_DB_HOST
+    - name: SEAFILE_MYSQL_DB_PORT
       value: "3306"
-    - name: DB_USER
+    - name: SEAFILE_MYSQL_DB_USER
       value: "seafile"
     - name: SEAFILE_MYSQL_DB_CCNET_DB_NAME
       value: "ccnet_db"
@@ -44,17 +44,16 @@ seafile:
       value: "redis"
 
     ## for redis
-    - name: REDIS_SERVER
-    - name: REDIS_PORT
-      value: 6379
-    - name: REDIS_PASSWORD
+    - name: REDIS_HOST
       allowEmpty: true
+    - name: REDIS_PORT
+      value: "6379"
 
     ## for memcached
-    - name: MEMCACHED_SERVER
+    - name: MEMCACHED_HOST
       allowEmpty: true
     - name: MEMCACHED_PORT
-      value: 11211
+      value: "11211"
 
     # initialization
 
@@ -63,13 +62,13 @@ seafile:
       initValue: true
 
   presetSecretsMap:
-    - name: DB_ROOT_PASSWD # Env's name
+    - name: INIT_SEAFILE_MYSQL_ROOT_PASSWORD # Env's name
       secret: seafile-secret
       key: INIT_SEAFILE_MYSQL_ROOT_PASSWORD
     - name: JWT_PRIVATE_KEY
       secret: seafile-secret
       key: JWT_PRIVATE_KEY
-    - name: DB_PASSWORD
+    - name: SEAFILE_MYSQL_DB_PASSWORD
       secret: seafile-secret
       key: SEAFILE_MYSQL_DB_PASSWORD
     - name: INIT_SEAFILE_ADMIN_PASSWORD
@@ -78,4 +77,7 @@ seafile:
     - name: INIT_S3_SECRET_KEY
       secret: seafile-secret
       key: INIT_S3_SECRET_KEY
+    - name: REDIS_PASSWORD
+      secret: seafile-secret
+      key: REDIS_PASSWORD
     

@@ -20,9 +20,9 @@ seafile:
     SEAFILE_SERVER_PROTOCOL: "https"
 
     # for database
-    DB_HOST: "<required>"
-    DB_PORT: "3306"
-    DB_USER: "seafile"
+    SEAFILE_MYSQL_DB_HOST: "<required>"
+    SEAFILE_MYSQL_DB_PORT: "3306"
+    SEAFILE_MYSQL_DB_USER: "seafile"
     SEAFILE_MYSQL_DB_CCNET_DB_NAME: "ccnet_db"
     SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: "seafile_db"
     SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: "seahub_db"
@@ -31,13 +31,15 @@ seafile:
     CACHE_PROVIDER: "redis"
 
     ## for redis
-    REDIS_SERVER: "<required>"
+    REDIS_HOST: "<your redis host, default `redis`>"
     REDIS_PORT: "6379"
-    REDIS_PASSWORD: ""
 
     ## for memcached
-    MEMCACHED_SERVER: "<memcached host if use>"
+    MEMCACHED_HOST: "<memcached host if use>"
     MEMCACHED_PORT: "11211"
+
+    # S3
+    USE_S3_STORAGE: "false"
 
     # initialization (only valid in first-time deployment and initMode = true)
 
@@ -45,7 +47,6 @@ seafile:
     INIT_SEAFILE_ADMIN_EMAIL: "<required>"
 
     ## For S3 storage backend (only valid in INIT_S3_STORAGE_BACKEND_CONFIG = true)
-    INIT_S3_STORAGE_BACKEND_CONFIG: "false"
     INIT_S3_COMMIT_BUCKET: ""
     INIT_S3_FS_BUCKET: ""
     INIT_S3_BLOCK_BUCKET: ""
@@ -54,6 +55,7 @@ seafile:
     INIT_S3_AWS_REGION: "us-east-1"
     INIT_S3_HOST: "s3.us-east-1.amazonaws.com"
     INIT_S3_USE_HTTPS: "true"
+    INIT_S3_PATH_STYLE_REQUEST: "false"
 
   # if you are using another secret name / key for seafile or mysql, please make correct the following fields:
   #secretsMap:
