@@ -48,7 +48,11 @@ seafile:
     # for memcached
     - name: MEMCACHED_HOST
     - name: MEMCACHED_PORT
-      value: 11211
+      value: "11211"
+
+    # for s3
+    - name: USE_S3_STORAGE
+      value: "false"
 
     # initialization
 

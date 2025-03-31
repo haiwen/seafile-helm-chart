@@ -47,13 +47,13 @@ seafile:
     - name: REDIS_HOST
       allowEmpty: true
     - name: REDIS_PORT
-      value: 6379
+      value: "6379"
 
     ## for memcached
     - name: MEMCACHED_HOST
       allowEmpty: true
     - name: MEMCACHED_PORT
-      value: 11211
+      value: "11211"
 
     # initialization
 
