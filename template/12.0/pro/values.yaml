@@ -61,7 +61,7 @@ seafile:
     - name: INIT_S3_AWS_REGION
       value: "us-east-1"
     - name: INIT_S3_HOST
-      value: "s3.us-east-1.amazonaws.com"
+      allowEmpty: true
     - name: INIT_S3_USE_HTTPS
       value: "true"
 

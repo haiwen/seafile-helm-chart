@@ -3,9 +3,9 @@ entries:
   ce:
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-02-17T14:13:01.553783+08:00"
+    created: "2025-04-24T11:34:48.484519+08:00"
     description: Helm chart for Seafile Pro.
-    digest: e371c6b4eb19100df6a57f258462649d10bba7bb9c97667c3a822cd89f5091b2
+    digest: fcd66ca754f03811bd534cf0ee245b758c24efc91ecb5ede29209cac32ac920e
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -20,9 +20,9 @@ entries:
   cluster:
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-02-17T14:13:01.554185+08:00"
+    created: "2025-04-24T11:34:48.484987+08:00"
     description: Helm chart for Seafile cluster.
-    digest: 611541887792f15471ac6ee421bdfeef8e04170f1682cc3e19565d9c32d9dcb2
+    digest: b66c17519f13ef4b63ad47a4dbd1bae8a0ef14d564668ea7d593a0a80938780e
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -37,9 +37,9 @@ entries:
   pro:
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-02-17T14:13:01.554536+08:00"
+    created: "2025-04-24T11:34:48.485563+08:00"
     description: Helm chart for Seafile Pro.
-    digest: caa54f5d62dc1b9383f50f48f09a16e7ecc44eb2f39604759bbbd704eaac93d0
+    digest: 0f1e5e937517f0d135fbd8d46bb53d16b4cbea3411fc975257a616869d2126dc
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -51,4 +51,4 @@ entries:
     urls:
     - https://haiwen.github.io/seafile-helm-chart/repo/pro-12.0.tgz
     version: "12.0"
-generated: "2025-02-17T14:13:01.552934+08:00"
+generated: "2025-04-24T11:34:48.483811+08:00"
