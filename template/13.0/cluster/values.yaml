@@ -53,6 +53,28 @@ seafile:
     # for s3
     - name: USE_S3_STORAGE
       value: "false"
+    - name: S3_COMMIT_BUCKET
+      allowEmpty: true
+    - name: S3_FS_BUCKET
+      allowEmpty: true
+    - name: S3_BLOCK_BUCKET
+      allowEmpty: true
+    - name: S3_KEY_ID
+      allowEmpty: true
+    - name: S3_USE_V4_SIGNATURE
+      value: "true"
+    - name: S3_AWS_REGION
+      value: "us-east-1"
+    - name: S3_HOST
+      allowEmpty: true
+    - name: S3_USE_HTTPS
+      value: "true"
+    - name: S3_PATH_STYLE_REQUEST
+      value: "false"
+
+    # for notification
+    - name: NOTIFICATION_SERVER_URL
+      allowEmpty: true
 
     # initialization
 
@@ -65,26 +87,6 @@ seafile:
       initValue: true
     - name: CLUSTER_INIT_ES_PORT
       value: "9200"
-
-    ## For S3 storage backend (only valid in INIT_S3_STORAGE_BACKEND_CONFIG = true)
-    - name: INIT_S3_COMMIT_BUCKET
-      allowEmpty: true
-    - name: INIT_S3_FS_BUCKET
-      allowEmpty: true
-    - name: INIT_S3_BLOCK_BUCKET
-      allowEmpty: true
-    - name: INIT_S3_KEY_ID
-      allowEmpty: true
-    - name: INIT_S3_USE_V4_SIGNATURE
-      value: "true"
-    - name: INIT_S3_AWS_REGION
-      value: "us-east-1"
-    - name: INIT_S3_HOST
-      value: "s3.us-east-1.amazonaws.com"
-    - name: INIT_S3_USE_HTTPS
-      value: "true"
-    - name: INIT_S3_PATH_STYLE_REQUEST
-      value: "false"
 
   presetSecretsMap:
     - name: INIT_SEAFILE_MYSQL_ROOT_PASSWORD # Env's name
@@ -99,10 +101,10 @@ seafile:
     - name: INIT_SEAFILE_ADMIN_PASSWORD
       secret: seafile-secret
       key: INIT_SEAFILE_ADMIN_PASSWORD
-    - name: INIT_S3_SECRET_KEY
+    - name: S3_SECRET_KEY
       secret: seafile-secret
-      key: INIT_S3_SECRET_KEY
-    - name: INIT_S3_SSE_C_KEY
+      key: S3_SECRET_KEY
+    - name: S3_SSE_C_KEY
       secret: seafile-secret
-      key: INIT_S3_SSE_C_KEY
+      key: S3_SSE_C_KEY
     

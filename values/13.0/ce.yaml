@@ -38,6 +38,9 @@ seafile:
     MEMCACHED_HOST: "<memcached host if use>"
     MEMCACHED_PORT: "11211"
 
+    # for notification
+    NOTIFICATION_SERVER_URL: ""
+
     # initialization (only valid in first-time deployment and initMode = true)
 
     ## for Seafile admin

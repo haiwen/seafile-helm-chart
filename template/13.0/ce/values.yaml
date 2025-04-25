@@ -55,6 +55,10 @@ seafile:
     - name: MEMCACHED_PORT
       value: "11211"
 
+    # for notification
+    - name: NOTIFICATION_SERVER_URL
+      allowEmpty: true
+
     # initialization
 
     ## for Seafile admin
@@ -74,9 +78,6 @@ seafile:
     - name: INIT_SEAFILE_ADMIN_PASSWORD
       secret: seafile-secret
       key: INIT_SEAFILE_ADMIN_PASSWORD
-    - name: INIT_S3_SECRET_KEY
-      secret: seafile-secret
-      key: INIT_S3_SECRET_KEY
     - name: REDIS_PASSWORD
       secret: seafile-secret
       key: REDIS_PASSWORD
