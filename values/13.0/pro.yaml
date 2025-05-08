@@ -53,6 +53,10 @@ seafile:
     # for notification
     NOTIFICATION_SERVER_URL: ""
 
+    # for Seafile AI
+    ENABLE_SEAFILE_AI: "false"
+    SEAFILE_AI_SERVER_URL: ""
+
     # initialization (only valid in first-time deployment and initMode = true)
 
     ## for Seafile admin
