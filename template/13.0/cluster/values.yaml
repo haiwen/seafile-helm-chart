@@ -76,6 +76,11 @@ seafile:
     - name: ENABLE_SEADOC
       value: "false"
     - name: SEADOC_SERVER_URL
+    
+    # for Seafile AI
+    - name: ENABLE_SEAFILE_AI
+      value: "false"
+    - name: SEAFILE_AI_SERVER_URL
       allowEmpty: true
 
     # initialization
@@ -109,4 +114,7 @@ seafile:
     - name: S3_SSE_C_KEY
       secret: seafile-secret
       key: S3_SSE_C_KEY
+    - name: SEAFILE_AI_SECRET_KEY
+      secret: seafile-secret
+      key: JWT_PRIVATE_KEY
     
