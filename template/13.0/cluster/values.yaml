@@ -24,10 +24,6 @@ seafile:
       value: "true"
     - name: SITE_ROOT
       value: "/"
-    - name: ENABLE_SEADOC
-      value: "false"
-    - name: SEADOC_SERVER_URL
-      allowEmpty: true
     - name: SEAFILE_SERVER_HOSTNAME
     - name: SEAFILE_SERVER_PROTOCOL
       value: "https"
@@ -74,6 +70,12 @@ seafile:
 
     # for notification
     - name: NOTIFICATION_SERVER_URL
+      allowEmpty: true
+
+    # for seadoc
+    - name: ENABLE_SEADOC
+      value: "false"
+    - name: SEADOC_SERVER_URL
       allowEmpty: true
 
     # initialization

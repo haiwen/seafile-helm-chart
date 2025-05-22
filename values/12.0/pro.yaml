@@ -14,8 +14,6 @@ seafile:
     TIME_ZONE: "UTC"
     SEAFILE_LOG_TO_STDOUT: "true"
     SITE_ROOT: "/"
-    ENABLE_SEADOC: "false"
-    SEADOC_SERVER_URL: "https://seafile.example.com/sdoc-server" # only valid in ENABLE_SEADOC = true
     SEAFILE_SERVER_HOSTNAME: "<required>"
     SEAFILE_SERVER_PROTOCOL: "https"
 
@@ -26,6 +24,10 @@ seafile:
     SEAFILE_MYSQL_DB_CCNET_DB_NAME: "ccnet_db"
     SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: "seafile_db"
     SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: "seahub_db"
+
+    # for seadoc
+    ENABLE_SEADOC: "false"
+    SEADOC_SERVER_URL: "" # only valid in ENABLE_SEADOC = true
 
     # initialization (only valid in first-time deployment and initMode = true)
 
