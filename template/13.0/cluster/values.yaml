@@ -47,8 +47,8 @@ seafile:
       value: "11211"
 
     # for s3
-    - name: USE_S3_STORAGE
-      value: "false"
+    - name: SEAF_SERVER_STORAGE_TYPE
+      value: "disk"
     - name: S3_COMMIT_BUCKET
       allowEmpty: true
     - name: S3_FS_BUCKET
