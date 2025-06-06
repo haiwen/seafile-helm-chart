@@ -48,7 +48,7 @@ seafile:
 
     # for s3
     - name: SEAF_SERVER_STORAGE_TYPE
-      value: "disk"
+      allowEmpty: true
     - name: S3_COMMIT_BUCKET
       allowEmpty: true
     - name: S3_FS_BUCKET
