@@ -39,10 +39,13 @@ seafile:
     # for notification
     NOTIFICATION_SERVER_URL: ""
 
+<<<<<<< HEAD
     # for seadoc
     ENABLE_SEADOC: "false"
     SEADOC_SERVER_URL: "" # only valid in ENABLE_SEADOC = true
 
+=======
+>>>>>>> c199339 (13.0 ce support seafile ai)
     # for Seafile AI
     ENABLE_SEAFILE_AI: "false"
     SEAFILE_AI_SERVER_URL: ""
