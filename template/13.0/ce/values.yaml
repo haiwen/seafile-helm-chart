@@ -55,15 +55,12 @@ seafile:
     - name: NOTIFICATION_SERVER_URL
       allowEmpty: true
 
-<<<<<<< HEAD
     # for seadoc
     - name: ENABLE_SEADOC
       value: "false"
     - name: SEADOC_SERVER_URL
       allowEmpty: true
 
-=======
->>>>>>> c199339 (13.0 ce support seafile ai)
     # for Seafile AI
     - name: ENABLE_SEAFILE_AI
       value: "false"
