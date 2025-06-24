@@ -6,7 +6,37 @@ seafile:
     image: seafileltd/seafile-mc:12.0-latest 
     seafileDataVolume: 
       storage: 10Gi
-  
+
+  # The following are the secret used by seafile
+  secret:
+    seafileAdminPassword: CHANGEME!
+    mysqlRootPassword: CHANGEME!
+    #JWT private key can be generated with the command "pwgen -s 40 1"
+    jwtPrivateKey: CHANGEME!
+    mysqlDbPassword: CHANGEME!
+
+  # The following are to configure the ingress
+  ingress:
+      # -- Specify if an ingress resource for seafile should be created or not
+      enabled: false
+      # -- The ingress class that should be used
+      ingressClassName: ""
+      # -- The url to use for the ingress reverse proxy to point at this pms instance
+      url: seafile.server.com
+      # -- Custom annotations to put on the ingress resource
+      # Example :
+      # annotations:
+      #   cert-manager.io/cluster-issuer: "letsencrypt-staging"
+      annotations: {}
+
+
+  # The following are to configure the service type
+  # Only ClusterIP or LoadBalancer are supported
+  service:
+    type: ClusterIP
+    #If you want to define a static IP address
+    #loadBalancerIP: ""
+
   # The following are environments of seafile services
   env:
     # for Seafile server
