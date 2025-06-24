@@ -61,6 +61,12 @@ seafile:
     - name: SEADOC_SERVER_URL
       allowEmpty: true
 
+    # for Seafile AI
+    - name: ENABLE_SEAFILE_AI
+      value: "false"
+    - name: SEAFILE_AI_SERVER_URL
+      allowEmpty: true
+
     # initialization
 
     ## for Seafile admin
@@ -83,4 +89,7 @@ seafile:
     - name: REDIS_PASSWORD
       secret: seafile-secret
       key: REDIS_PASSWORD
+    - name: SEAFILE_AI_SECRET_KEY
+      secret: seafile-secret
+      key: JWT_PRIVATE_KEY
     
