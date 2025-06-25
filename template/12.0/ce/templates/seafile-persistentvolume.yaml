@@ -4,8 +4,17 @@ metadata:
   name: seafile-data
 spec:
   capacity:
-    storage:  {{ include "seafile.seafileDataVolume.storage" . }}
+    storage: {{ .Values.seafile.configs.seafileDataVolume.storage }}
   accessModes:
     - ReadWriteOnce
+  storageClassName: {{ .Values.seafile.configs.seafileDataVolume.storageClassName }}
+  {{ if .Values.seafile.configs.seafileDataVolume.nfs.enabled }}
+  nfs:
+    server: {{ .Values.seafile.configs.seafileDataVolume.nfs.serverIP }}
+    path: {{ .Values.seafile.configs.seafileDataVolume.nfs.serverPath }}
+  mountOptions:
+    - nfsvers=4.1
+  {{ else }}
   hostPath:
-    path: {{ include "seafile.seafileDataVolume.path" . }}
+    path: {{ .Values.seafile.configs.seafileDataVolume.hostPath }}
+  {{ end }}
