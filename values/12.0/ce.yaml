@@ -5,8 +5,13 @@ seafile:
   configs:
     image: seafileltd/seafile-mc:12.0-latest 
     seafileDataVolume: 
+      storageClassName: ""
       hostPath: /opt/seafile-data
       storage: 10Gi
+      nfs:
+        enabled: false
+        serverIP: ""
+        serverPath: ""
 
   # The following are the secret used by seafile
   secret:
