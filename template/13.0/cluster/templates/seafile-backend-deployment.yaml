@@ -29,8 +29,6 @@ spec:
               value: "true"
             - name: CLUSTER_MODE
               value: "backend"
-            - name: CACHE_PROVIDER
-              value: "memcached"
 
             # common env
             {{- $overrideEnv := .Values.seafile.env -}}
