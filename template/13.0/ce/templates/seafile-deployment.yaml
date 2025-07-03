@@ -23,10 +23,65 @@ spec:
         - name: seafile
           image: {{ include "seafile.image" . }}
           env:
+            # constant env
+            - name: SEAF_SERVER_STORAGE_TYPE
+              value: "disk"
+
             # common env
             {{- $overrideEnv := .Values.seafile.env -}}
             {{- $initMode := .Values.seafile.initMode -}}
+
+            ## Initialize calibration parameters
+
+            ### notification server
+            {{- $enableNotificationServer := "false" -}}
+            {{- $notificationServerURL := "" -}}
+
+            ### cache
+            {{- $cacheProvider := "redis" -}}
+            {{- $redisHost := "" -}}
+            {{- $memcachedHost := "" -}}
+
+            ### seadoc
+            {{- $enableSeadoc := "false" -}}
+            {{- $seadocServerURL := "" -}}
+
+            ### seafile ai
+            {{- $enableSeafileAI := "false" -}}
+            {{- $seafileAIServerURL := "" -}}
+
             {{- range .Values.seafile.presetEnv }}
+              
+              # update calibration values
+
+              ## notification server
+              {{- if eq .name "ENABLE_NOTIFICATION_SERVER" }}
+                {{- $enableNotificationServer = (index $overrideEnv .name | default .value | default "false") -}}
+              {{- else if eq .name "NOTIFICATION_SERVER_URL" }}
+                {{- $notificationServerURL = (index $overrideEnv .name | default .value | default "") -}}
+              
+              ## cache
+              {{- else if eq .name "CACHE_PROVIDER" }}
+                {{- $cacheProvider = (index $overrideEnv .name | default .value | default "redis") -}}
+              {{- else if eq .name "REDIS_HOST" }}
+                {{- $redisHost = (index $overrideEnv .name | default .value | default "") -}}
+              {{- else if eq .name "MEMCACHED_HOST" }}
+                {{- $memcachedHost = (index $overrideEnv .name | default .value | default "") -}}
+
+              ## seadoc
+              {{- else if eq .name "ENABLE_SEADOC" }}
+                {{- $enableSeadoc = (index $overrideEnv .name | default .value | default "false") -}}
+              {{- else if eq .name "SEADOC_SERVER_URL" }}
+                {{- $seadocServerURL = (index $overrideEnv .name | default .value | default "") -}}
+
+              ## seafile ai
+              {{- else if eq .name "ENABLE_SEAFILE_AI" }}
+                {{- $enableSeafileAI = (index $overrideEnv .name | default .value | default "false") -}}
+              {{- else if eq .name "SEAFILE_AI_SERVER_URL" }}
+                {{- $seafileAIServerURL = (index $overrideEnv .name | default .value | default "") -}}
+              {{- end }}
+
+            # write to yaml
             - name: {{ .name }}
               {{- $valueFromEnv := (index $overrideEnv .name | default "") -}}
               {{- if and ($valueFromEnv) (not (eq $valueFromEnv "<required>")) }}
@@ -49,6 +104,26 @@ spec:
                 secretKeyRef:
                   name: {{ $secretDetails.secret | default .secret }}
                   key: {{ $secretDetails.key | default .key }}
+            {{- end }}
+
+            # Calibrating
+            ## notification server
+            {{- if eq $enableNotificationServer "true" }}
+              {{- if $notificationServerURL }}
+            - name: INNER_NOTIFICATION_SERVER_URL
+              value: {{ $notificationServerURL | quote }}
+              {{- else }}
+                {{- fail (printf "You have enabled notification server but NOTIFICATION_SERVER_URL is not specified and is not allowed to be empty") -}}
+              {{- end }}
+            ## cache
+            {{- else if or (and (eq $cacheProvider "redis") (not $redisHost)) (and (eq $cacheProvider "memcached") (not $memcachedHost)) }}
+              {{- fail (printf "You are using %s but %s_HOST is not specified and is not allowed to be empty!" $cacheProvider ($cacheProvider | upper)) -}}
+            ## seadoc
+            {{- else if and (eq $enableSeadoc "true") (not $seadocServerURL) }}
+              {{- fail (printf "You have enabled Seadoc but SEADOC_SERVER_URL is not specified and is not allowed to be empty") -}}
+            ## seafile ai
+            {{- else if and (eq $enableSeafileAI "true") (not $seafileAIServerURL) }}
+              {{- fail (printf "You have enabled Seafile AI but SEAFILE_AI_SERVER_URL is not specified and is not allowed to be empty") -}}
             {{- end }}
 
             # extra envs

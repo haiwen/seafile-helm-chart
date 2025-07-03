@@ -53,6 +53,7 @@ seafile:
 
     ## for memcached
     - name: MEMCACHED_HOST
+      allowEmpty: true
     - name: MEMCACHED_PORT
       value: "11211"
 
@@ -79,6 +80,8 @@ seafile:
       value: "false"
 
     # for notification
+    - name: ENABLE_NOTIFICATION_SERVER
+      value: "false"
     - name: NOTIFICATION_SERVER_URL
       allowEmpty: true
 
