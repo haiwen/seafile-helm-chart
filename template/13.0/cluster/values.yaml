@@ -41,7 +41,17 @@ seafile:
     - name: SEAFILE_MYSQL_DB_SEAHUB_DB_NAME
       value: "seahub_db"
     
-    # for memcached
+    # for cache
+    - name: CACHE_PROVIDER
+      value: "redis"
+
+    ## for redis
+    - name: REDIS_HOST
+      allowEmpty: true
+    - name: REDIS_PORT
+      value: "6379"
+
+    ## for memcached
     - name: MEMCACHED_HOST
     - name: MEMCACHED_PORT
       value: "11211"
@@ -76,6 +86,7 @@ seafile:
     - name: ENABLE_SEADOC
       value: "false"
     - name: SEADOC_SERVER_URL
+      allowEmpty: true
     
     # for Seafile AI
     - name: ENABLE_SEAFILE_AI
@@ -117,4 +128,7 @@ seafile:
     - name: SEAFILE_AI_SECRET_KEY
       secret: seafile-secret
       key: JWT_PRIVATE_KEY
+    - name: REDIS_PASSWORD
+      secret: seafile-secret
+      key: REDIS_PASSWORD
     
