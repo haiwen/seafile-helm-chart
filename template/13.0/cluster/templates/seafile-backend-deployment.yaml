@@ -56,8 +56,6 @@ spec:
             {{- range .Values.seafile.presetEnv }}
 
               # update calibration values
-
-              ## notification server
               
               ## cache
               {{- if eq .name "CACHE_PROVIDER" }}

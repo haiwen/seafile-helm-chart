@@ -58,7 +58,9 @@ spec:
               # update calibration values
 
               ## notification server
-              {{- if eq .name "NOTIFICATION_SERVER_URL" }}
+              {{- if eq .name "ENABLE_NOTIFICATION_SERVER" }}
+                {{- $enableNotificationServer = (index $overrideEnv .name | default .value | default "false") -}}
+              {{- else if eq .name "NOTIFICATION_SERVER_URL" }}
                 {{- $notificationServerURL = (index $overrideEnv .name | default .value | default "") -}}
               
               ## cache
