@@ -74,6 +74,8 @@ seafile:
       value: "false"
 
     # for notification
+    - name: ENABLE_NOTIFICATION_SERVER
+      value: "false"
     - name: NOTIFICATION_SERVER_URL
       allowEmpty: true
     
