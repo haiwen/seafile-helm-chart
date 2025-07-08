@@ -48,6 +48,9 @@ seafile:
     ENABLE_SEAFILE_AI: "false"
     SEAFILE_AI_SERVER_URL: ""
 
+    # for Metadata server
+    MD_FILE_COUNT_LIMIT: "100000"
+
     # initialization (only valid in first-time deployment and initMode = true)
 
     ## for Seafile admin

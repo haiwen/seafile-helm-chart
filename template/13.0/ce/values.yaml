@@ -69,6 +69,10 @@ seafile:
     - name: SEAFILE_AI_SERVER_URL
       allowEmpty: true
 
+    # for Metadata server
+    - name: MD_FILE_COUNT_LIMIT
+      value: "100000"
+
     # initialization
 
     ## for Seafile admin
