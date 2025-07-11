@@ -6,7 +6,6 @@ seafile:
     seafileFrontendReplicas: "2"
     image: seafileltd/seafile-pro-mc:13.0-latest 
     seafileDataVolume: 
-      hostPath: /opt/seafile/shared
       storage: 10Gi
   
   # The following are environments of seafile services

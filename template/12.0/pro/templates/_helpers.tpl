@@ -17,12 +17,3 @@
         {{- printf "10Gi" }}
     {{- end }}
 {{- end }}
-
-{{/* for storage path  */}}
-{{- define "seafile.seafileDataVolume.path" -}}
-    {{- if and (.Values.seafile.configs.seafileDataVolume) (.Values.seafile.configs.seafileDataVolume.hostPath) }}
-        {{- printf "%s" .Values.seafile.configs.seafileDataVolume.hostPath }}
-    {{- else }}
-        {{- printf "/opt/seafile-data" }}
-    {{- end }}
-{{- end }}

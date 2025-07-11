@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: seafile-env
+data:
+{{- $overrideEnv := .Values.seafile.env -}}
+{{- $initMode := .Values.seafile.initMode -}}
+{{- range .Values.seafile.presetEnv }}
+  {{- $valueFromEnv := (index $overrideEnv .name | default "") -}}
+  {{- if and ($valueFromEnv) (not (eq $valueFromEnv "<required>")) }}
+  {{ .name }}: {{ $valueFromEnv | quote }}
+  {{- else if .value }}
+  {{ .name }}: {{ .value | quote }}
+  {{- else if or (.allowEmpty) (and (not $initMode) (.initValue)) }}
+  {{ .name }}: ""
+  {{- else }}
+  {{- fail (printf "%s is not specified and is not allowed to be empty" .name) -}}
+  {{- end }}
+{{- end }}

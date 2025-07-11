@@ -2,8 +2,72 @@ apiVersion: v1
 entries:
   ce:
   - apiVersion: v2
+    appVersion: "13.0"
+    created: "2025-07-11T12:00:41.731601+08:00"
+    description: Helm chart for Seafile Pro.
+    digest: 4864b8489fa64173c9015dcb8a961e3084b57e38f70bbdd4d57132aaff5448c5
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: ce
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/13.0/ce-13.0.0.tgz
+    version: 13.0.0
+  - apiVersion: v2
+    appVersion: "13.0"
+    created: "2025-07-11T12:00:41.731806+08:00"
+    description: Helm chart for Seafile Pro.
+    digest: 4864b8489fa64173c9015dcb8a961e3084b57e38f70bbdd4d57132aaff5448c5
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: ce
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/13.0/ce.tgz
+    version: 13.0.0
+  - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-05-22T18:29:23.960754+08:00"
+    created: "2025-07-11T12:00:41.729086+08:00"
+    description: Helm chart for Seafile Pro.
+    digest: 6465463ab93dff4bd5437466d95dd085b66825d61cde5ac2cca1c9533684324e
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: ce
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/ce-12.0.1.tgz
+    version: 12.0.1
+  - apiVersion: v2
+    appVersion: "12.0"
+    created: "2025-07-11T12:00:41.72927+08:00"
+    description: Helm chart for Seafile Pro.
+    digest: 6465463ab93dff4bd5437466d95dd085b66825d61cde5ac2cca1c9533684324e
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: ce
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/ce.tgz
+    version: 12.0.1
+  - apiVersion: v2
+    appVersion: "12.0"
+    created: "2025-07-11T12:00:41.728698+08:00"
     description: Helm chart for Seafile Pro.
     digest: 947b6361aa07f4f71cd05618c1027adbe6751fc78bbfcbfa23148b66cd004cb8
     home: https://seafile.com
@@ -15,12 +79,76 @@ entries:
     - https://github.com/haiwen/seafile
     type: application
     urls:
-    - https://haiwen.github.io/seafile-helm-chart/repo/ce-12.0.tgz
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/ce-12.0.0.tgz
     version: "12.0"
   cluster:
   - apiVersion: v2
+    appVersion: "13.0"
+    created: "2025-07-11T12:00:41.732223+08:00"
+    description: Helm chart for Seafile cluster.
+    digest: b9a39701eb603a95bef8afd6b60b1a7a370c97096d1fe3a55f9fa36940399688
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: cluster
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/13.0/cluster-13.0.0.tgz
+    version: 13.0.0
+  - apiVersion: v2
+    appVersion: "13.0"
+    created: "2025-07-11T12:00:41.735087+08:00"
+    description: Helm chart for Seafile cluster.
+    digest: b9a39701eb603a95bef8afd6b60b1a7a370c97096d1fe3a55f9fa36940399688
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: cluster
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/13.0/cluster.tgz
+    version: 13.0.0
+  - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-05-22T18:29:23.961185+08:00"
+    created: "2025-07-11T12:00:41.730047+08:00"
+    description: Helm chart for Seafile cluster.
+    digest: ee15001ea1f7e5d58f035b41de3a6a4e9b5af7a8cf32dc862a89a03d9dedf681
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: cluster
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/cluster-12.0.1.tgz
+    version: 12.0.1
+  - apiVersion: v2
+    appVersion: "12.0"
+    created: "2025-07-11T12:00:41.730264+08:00"
+    description: Helm chart for Seafile cluster.
+    digest: ee15001ea1f7e5d58f035b41de3a6a4e9b5af7a8cf32dc862a89a03d9dedf681
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: cluster
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/cluster.tgz
+    version: 12.0.1
+  - apiVersion: v2
+    appVersion: "12.0"
+    created: "2025-07-11T12:00:41.729689+08:00"
     description: Helm chart for Seafile cluster.
     digest: ca3f9bce0f18f00a4f75c69f36f70cd54f807f367537afb627506ea3127bf9d6
     home: https://seafile.com
@@ -32,12 +160,76 @@ entries:
     - https://github.com/haiwen/seafile
     type: application
     urls:
-    - https://haiwen.github.io/seafile-helm-chart/repo/cluster-12.0.tgz
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/cluster-12.0.0.tgz
     version: "12.0"
   pro:
   - apiVersion: v2
+    appVersion: "13.0"
+    created: "2025-07-11T12:00:41.735346+08:00"
+    description: Helm chart for Seafile Pro.
+    digest: ed46804d0dd2d24018519797553b410de6e2101dbe8a14fc554b9c6616c53bf5
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: pro
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/13.0/pro-13.0.0.tgz
+    version: 13.0.0
+  - apiVersion: v2
+    appVersion: "13.0"
+    created: "2025-07-11T12:00:41.73558+08:00"
+    description: Helm chart for Seafile Pro.
+    digest: ed46804d0dd2d24018519797553b410de6e2101dbe8a14fc554b9c6616c53bf5
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: pro
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/13.0/pro.tgz
+    version: 13.0.0
+  - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-05-22T18:29:23.961488+08:00"
+    created: "2025-07-11T12:00:41.731016+08:00"
+    description: Helm chart for Seafile Pro.
+    digest: 33c5393031fac9702ee079ed13ecb63d252360b0299a2b324f4a178dd64b8adb
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: pro
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/pro-12.0.1.tgz
+    version: 12.0.1
+  - apiVersion: v2
+    appVersion: "12.0"
+    created: "2025-07-11T12:00:41.731216+08:00"
+    description: Helm chart for Seafile Pro.
+    digest: 33c5393031fac9702ee079ed13ecb63d252360b0299a2b324f4a178dd64b8adb
+    home: https://seafile.com
+    icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
+    maintainers:
+    - name: seafileDocs
+    name: pro
+    sources:
+    - https://github.com/haiwen/seafile
+    type: application
+    urls:
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/pro.tgz
+    version: 12.0.1
+  - apiVersion: v2
+    appVersion: "12.0"
+    created: "2025-07-11T12:00:41.730696+08:00"
     description: Helm chart for Seafile Pro.
     digest: 11fc8626879c52dbea352fd991149badba8b6529c7938641566d368e13022b34
     home: https://seafile.com
@@ -49,6 +241,6 @@ entries:
     - https://github.com/haiwen/seafile
     type: application
     urls:
-    - https://haiwen.github.io/seafile-helm-chart/repo/pro-12.0.tgz
+    - https://haiwen.github.io/seafile-helm-chart/repo/12.0/pro-12.0.0.tgz
     version: "12.0"
-generated: "2025-05-22T18:29:23.960199+08:00"
+generated: "2025-07-11T12:00:41.727858+08:00"

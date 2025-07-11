@@ -1,0 +1,9 @@
+seafile:
+  env:
+    SEAFILE_SERVER_HOSTNAME: "seafile.example.com"
+
+    SEAFILE_MYSQL_DB_HOST: "127.0.0.1"
+    REDIS_HOST: "127.0.0.1"
+    CLUSTER_INIT_ES_HOST: "127.0.0.1"
+
+    INIT_SEAFILE_ADMIN_EMAIL: "admin@seafile.example.com"
