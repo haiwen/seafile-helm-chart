@@ -9,6 +9,18 @@
 
 {{/* Check volume use or set by default  */}}
 
+{{- define "seafile.seafileDataVolume.enabled" -}}
+    {{- $config := .Values.seafile.configs.seafileDataVolume -}}
+    {{- if or 
+        (not $config) 
+        (eq ($config.disablePVC | default false) false)
+    }}
+        true
+    {{- else }}
+        false
+    {{- end }}
+{{- end }}
+
 {{/* for storage size  */}}
 {{- define "seafile.seafileDataVolume.storage" -}}
     {{- if and (.Values.seafile.configs.seafileDataVolume) (.Values.seafile.configs.seafileDataVolume.storage) }}

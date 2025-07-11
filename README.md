@@ -46,8 +46,6 @@ This is a public repository for storing charts related to quick deployment of Se
     nano my-values.yaml
     ```
 
-    The placeholder `<type of deployment>` can be `pro-<chartVersion>` (like `pro-13.0`), `ce-<chartVersion>` (like `ce-13.0`) and `cluster-<chartVersion>` (like `cluster-13.0`)
-
 >[!TIP]
 >- Please go [here](https://github.com/haiwen/seafile-helm-chart/tree/main/repo) to view the list of `chartVersion`
 >- It is not necessary to use the `my-values.yaml` we provided (i.e., you can create an empty `my-values.yaml` and add required field, as others have defined default values in our chart), because it destroys the flexibility of deploying with Helm, but it contains some formats of how Seafile Helm Chart reads these configurations, as well as all the environment variables and secret variables that can be read directly.
@@ -56,7 +54,7 @@ This is a public repository for storing charts related to quick deployment of Se
 
     ```sh
     helm repo add seafile https://haiwen.github.io/seafile-helm-chart/repo
-    helm upgrade --install seafile seafile/<type of deployment>  --namespace seafile --create-namespace --values my-values.yaml
+    helm upgrade --install seafile seafile/<seafile-version>/<ce, pro, cluster>[--releaseVersion] --namespace seafile --create-namespace --values my-values.yaml
     ```
 
 >[!TIP]
