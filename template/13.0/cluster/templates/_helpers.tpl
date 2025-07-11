@@ -18,15 +18,6 @@
     {{- end }}
 {{- end }}
 
-{{/* for storage path  */}}
-{{- define "seafile.seafileDataVolume.path" -}}
-    {{- if and (.Values.seafile.configs.seafileDataVolume) (.Values.seafile.configs.seafileDataVolume.hostPath) }}
-        {{- printf "%s" .Values.seafile.configs.seafileDataVolume.hostPath }}
-    {{- else }}
-        {{- printf "/opt/seafile/shared" }}
-    {{- end }}
-{{- end }}
-
 {{/* check initMode use and set by default, and check init vars  */}}
 {{- define "seafile.cluster.frontendNums" -}}
     {{- if .Values.seafile.initMode }}

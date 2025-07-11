@@ -16,7 +16,7 @@ entries:
     type: application
     urls:
     - https://haiwen.github.io/seafile-helm-chart/repo/ce-12.0.tgz
-    version: "12.0"
+    version: "1.0"
   cluster:
   - apiVersion: v2
     appVersion: "12.0"
@@ -33,7 +33,7 @@ entries:
     type: application
     urls:
     - https://haiwen.github.io/seafile-helm-chart/repo/cluster-12.0.tgz
-    version: "12.0"
+    version: "1.0"
   pro:
   - apiVersion: v2
     appVersion: "12.0"
@@ -50,5 +50,5 @@ entries:
     type: application
     urls:
     - https://haiwen.github.io/seafile-helm-chart/repo/pro-12.0.tgz
-    version: "12.0"
+    version: "1.0"
 generated: "2025-05-22T18:29:23.960199+08:00"

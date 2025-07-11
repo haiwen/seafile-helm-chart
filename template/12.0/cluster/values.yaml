@@ -80,21 +80,4 @@ seafile:
       allowEmpty: true
     - name: INIT_S3_USE_HTTPS
       value: "true"
-
-  presetSecretsMap:
-    - name: DB_ROOT_PASSWD # Env's name
-      secret: seafile-secret
-      key: INIT_SEAFILE_MYSQL_ROOT_PASSWORD
-    - name: JWT_PRIVATE_KEY
-      secret: seafile-secret
-      key: JWT_PRIVATE_KEY
-    - name: DB_PASSWORD
-      secret: seafile-secret
-      key: SEAFILE_MYSQL_DB_PASSWORD
-    - name: INIT_SEAFILE_ADMIN_PASSWORD
-      secret: seafile-secret
-      key: INIT_SEAFILE_ADMIN_PASSWORD
-    - name: INIT_S3_SECRET_KEY
-      secret: seafile-secret
-      key: INIT_S3_SECRET_KEY
     

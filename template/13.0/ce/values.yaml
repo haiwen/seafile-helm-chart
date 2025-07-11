@@ -78,24 +78,4 @@ seafile:
     ## for Seafile admin
     - name: INIT_SEAFILE_ADMIN_EMAIL
       initValue: true
-
-  presetSecretsMap:
-    - name: INIT_SEAFILE_MYSQL_ROOT_PASSWORD # Env's name
-      secret: seafile-secret
-      key: INIT_SEAFILE_MYSQL_ROOT_PASSWORD
-    - name: JWT_PRIVATE_KEY
-      secret: seafile-secret
-      key: JWT_PRIVATE_KEY
-    - name: SEAFILE_MYSQL_DB_PASSWORD
-      secret: seafile-secret
-      key: SEAFILE_MYSQL_DB_PASSWORD
-    - name: INIT_SEAFILE_ADMIN_PASSWORD
-      secret: seafile-secret
-      key: INIT_SEAFILE_ADMIN_PASSWORD
-    - name: REDIS_PASSWORD
-      secret: seafile-secret
-      key: REDIS_PASSWORD
-    - name: SEAFILE_AI_SECRET_KEY
-      secret: seafile-secret
-      key: JWT_PRIVATE_KEY
     

@@ -22,38 +22,15 @@ spec:
       containers:
         - name: seafile
           image: {{ include "seafile.image" . }}
-          env:
-            # common env
-            {{- $overrideEnv := .Values.seafile.env -}}
-            {{- $initMode := .Values.seafile.initMode -}}
-            {{- range .Values.seafile.presetEnv }}
-            - name: {{ .name }}
-              {{- $valueFromEnv := (index $overrideEnv .name | default "") -}}
-              {{- if and ($valueFromEnv) (not (eq $valueFromEnv "<required>")) }}
-              value: {{ $valueFromEnv | quote }}
-              {{- else if .value }}
-              value: {{ .value | quote }}
-              {{- else if or (.allowEmpty) (and (not $initMode) (.initValue)) }}
-              value: ""
-              {{- else }}
-              {{- fail (printf "%s is not specified and is not allowed to be empty" .name) -}}
-              {{- end }}
-            {{- end }}
+          envFrom:
+            - configMapRef:
+                name: seafile-env
+            - secretRef:
+                name: seafile-secret
 
-            # common secret
-            {{- $overrideSecretMap := .Values.seafile.secretsMap -}}
-            {{- range .Values.seafile.presetSecretsMap }}
-            {{- $secretDetails := (index $overrideSecretMap .name | default (dict "secret" .secret "key" .key)) }}
-            - name: {{ .name }}
-              valueFrom:
-                secretKeyRef:
-                  name: {{ $secretDetails.secret | default .secret }}
-                  key: {{ $secretDetails.key | default .key }}
-            {{- end }}
-
-            # extra envs
+            {{- /* extra envs */ -}}
             {{- if .Values.seafile.extraEnv }}
-            {{- toYaml .Values.seafile.extraEnv | nindent 12 }}
+              {{- toYaml .Values.seafile.extraEnv | nindent 12 }}
             {{- end }}
           ports:
             - containerPort: 80

@@ -2,7 +2,7 @@ apiVersion: v2
 name: pro
 description: Helm chart for Seafile Pro.
 type: application
-version: "13.0"
+version: "1.0"
 appVersion: "13.0"
 home: https://seafile.com
 sources:
