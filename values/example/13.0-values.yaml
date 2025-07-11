@@ -1,4 +1,7 @@
 seafile:
+  config:
+    seafileDataVolume:
+      disablePVC: true
   env:
     SEAFILE_SERVER_HOSTNAME: "seafile.example.com"
 

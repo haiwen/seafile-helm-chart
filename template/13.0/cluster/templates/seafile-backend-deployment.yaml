@@ -12,6 +12,7 @@ spec:
       labels:
         app: seafile-backend
     spec:
+      {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
       initContainers:  
         - name: set-ownership  
           image: busybox  
@@ -19,6 +20,7 @@ spec:
           volumeMounts:  
           - name: seafile-data  
             mountPath: /shared
+      {{- end }}
       containers:
         - name: seafile-backend
           image: {{ include "seafile.image" . }}
@@ -44,6 +46,7 @@ spec:
             {{- if .Values.seafile.extraEnv.backend }}
               {{- toYaml .Values.seafile.extraEnv.backend | nindent 12 }}
             {{- end }}
+          {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
           volumeMounts:
             - name: seafile-data
               mountPath: /shared
@@ -57,7 +60,9 @@ spec:
               readOnly: {{ .readOnly }}
               {{- end }}
             {{- end }}
+          {{- end }}
           resources: {{- toYaml .Values.seafile.extraResources.backend | nindent 12 }}
+      {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
       volumes:
         - name: seafile-data
           persistentVolumeClaim:
@@ -66,6 +71,7 @@ spec:
         - name: {{ .name }}
           {{- toYaml .volumeInfo | nindent 10 }}
         {{- end }}
+      {{- end }}
       restartPolicy: Always
       imagePullSecrets:
         - name: regcred

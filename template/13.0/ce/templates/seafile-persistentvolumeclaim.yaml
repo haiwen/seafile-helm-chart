@@ -1,3 +1,4 @@
+{{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -11,3 +12,4 @@ spec:
   {{- if and .Values.seafile.configs.seafileDataVolume .Values.seafile.configs.seafileDataVolume.storageClassName }}
   storageClassName: {{ .Values.seafile.configs.seafileDataVolume.storageClassName }}
   {{- end }}
+{{- end }}
