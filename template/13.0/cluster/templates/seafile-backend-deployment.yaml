@@ -34,7 +34,7 @@ spec:
             - name: SEAFILE_AI_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: seafile
+                  name: seafile-secret
                   key: JWT_PRIVATE_KEY
           envFrom:
             - configMapRef:

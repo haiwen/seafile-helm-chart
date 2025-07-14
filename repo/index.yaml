@@ -3,9 +3,9 @@ entries:
   ce:
   - apiVersion: v2
     appVersion: "13.0"
-    created: "2025-07-14T11:37:41.256644+08:00"
+    created: "2025-07-14T11:43:58.225524+08:00"
     description: Helm chart for Seafile Pro.
-    digest: 5211b359735d47fe58c89824c48ba2a07ac7d80baaa9c2534e0ce5f43b391bdd
+    digest: 5eea8f8460284603ff7c3ee58c239c808d8b6ae1f7fd0560919f934cafb05c96
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -19,9 +19,9 @@ entries:
     version: 13.0.0
   - apiVersion: v2
     appVersion: "13.0"
-    created: "2025-07-14T11:37:41.256839+08:00"
+    created: "2025-07-14T11:43:58.22714+08:00"
     description: Helm chart for Seafile Pro.
-    digest: 581a292adcfc8ad1b33b88577e2c32c9b02e4abaa99b2463fefe691ea8bb1cd5
+    digest: e92a6747bf6b5c5e7a4a4367c0fc4a584d2de19fff406b9e684ba55be4866d5c
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -35,7 +35,7 @@ entries:
     version: "13.0"
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.254476+08:00"
+    created: "2025-07-14T11:43:58.222107+08:00"
     description: Helm chart for Seafile Pro.
     digest: f83982b830cfcef466d017ce7c89aab1ad7781e62252280dbfc5e1b925dffff2
     home: https://seafile.com
@@ -51,7 +51,7 @@ entries:
     version: 12.0.1
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.254172+08:00"
+    created: "2025-07-14T11:43:58.221773+08:00"
     description: Helm chart for Seafile Pro.
     digest: d057bb8c4067354c4e2e48211518dac523cb1b4fb199569494ef5c006ab266fb
     home: https://seafile.com
@@ -67,7 +67,7 @@ entries:
     version: 12.0.0
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.254739+08:00"
+    created: "2025-07-14T11:43:58.222413+08:00"
     description: Helm chart for Seafile Pro.
     digest: d48a4c24f9b1936873408927f79fb15bba0695427192b010315c7129792cdbb8
     home: https://seafile.com
@@ -84,9 +84,9 @@ entries:
   cluster:
   - apiVersion: v2
     appVersion: "13.0"
-    created: "2025-07-14T11:37:41.259348+08:00"
+    created: "2025-07-14T11:43:58.227497+08:00"
     description: Helm chart for Seafile cluster.
-    digest: 1649d082eb6c66c4d776fda748d0a76013db762b87bf21c982ca7f1075ae87e1
+    digest: eaf831a58dbe5c2385f11b17281f505a124ad3d3c37714092716397a79f2725a
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -100,9 +100,9 @@ entries:
     version: 13.0.0
   - apiVersion: v2
     appVersion: "13.0"
-    created: "2025-07-14T11:37:41.2597+08:00"
+    created: "2025-07-14T11:43:58.227862+08:00"
     description: Helm chart for Seafile cluster.
-    digest: a771f33445061bd0f6bed5430d3a74669b96af037a29000b25c363630ab51342
+    digest: 2f775f0dc074157fc567b92917f05669000d99564b2d5f9418dd83b2251d143a
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -116,7 +116,7 @@ entries:
     version: "13.0"
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.255416+08:00"
+    created: "2025-07-14T11:43:58.223084+08:00"
     description: Helm chart for Seafile cluster.
     digest: 27f6332503eca4ba4b1c5f53492d712dc8e4237a182c6c9c83d8e46be62c1bc9
     home: https://seafile.com
@@ -132,7 +132,7 @@ entries:
     version: 12.0.1
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.255166+08:00"
+    created: "2025-07-14T11:43:58.222823+08:00"
     description: Helm chart for Seafile cluster.
     digest: be90d0f89270cce1964ef0f0c2be1241b5ace868b1278a27b1335a2d85e1a4ec
     home: https://seafile.com
@@ -148,7 +148,7 @@ entries:
     version: 12.0.0
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.255653+08:00"
+    created: "2025-07-14T11:43:58.223328+08:00"
     description: Helm chart for Seafile cluster.
     digest: 0065f271141efb276435ff004ed8ff258691b0512035850557a084771e0e534c
     home: https://seafile.com
@@ -165,9 +165,9 @@ entries:
   pro:
   - apiVersion: v2
     appVersion: "13.0"
-    created: "2025-07-14T11:37:41.259961+08:00"
+    created: "2025-07-14T11:43:58.228142+08:00"
     description: Helm chart for Seafile Pro.
-    digest: 48dac606b17531a371fafd8bfbd9c70d842987d39d13f102b96882e769667f9f
+    digest: 2232d2a9d004d3f27c78df4dd378491a7eafd3266f3469cbc69b9e41f49ad846
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -181,9 +181,9 @@ entries:
     version: 13.0.0
   - apiVersion: v2
     appVersion: "13.0"
-    created: "2025-07-14T11:37:41.260305+08:00"
+    created: "2025-07-14T11:43:58.228406+08:00"
     description: Helm chart for Seafile Pro.
-    digest: 9006cfad97012ad8d2ae92a62cd97115ed96a37ad2a893615c6df532e6e55624
+    digest: 92e54c8771b37b7416b26831038b7080a81a262165de86def1fff4db823d753a
     home: https://seafile.com
     icon: https://de.seafile.com/wp-content/themes/seafileger/img/svg/seafile_logo_proposed.svg
     maintainers:
@@ -197,7 +197,7 @@ entries:
     version: "13.0"
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.256218+08:00"
+    created: "2025-07-14T11:43:58.223901+08:00"
     description: Helm chart for Seafile Pro.
     digest: de82ca1855d399d3158915d14fdb74c34ed32747232d5e7dc3cc1db625792437
     home: https://seafile.com
@@ -213,7 +213,7 @@ entries:
     version: 12.0.1
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.256+08:00"
+    created: "2025-07-14T11:43:58.223684+08:00"
     description: Helm chart for Seafile Pro.
     digest: 955b8e2910efb2902a87928616084a918fe763746b980d4aacae4a7637d7f20d
     home: https://seafile.com
@@ -229,7 +229,7 @@ entries:
     version: 12.0.0
   - apiVersion: v2
     appVersion: "12.0"
-    created: "2025-07-14T11:37:41.256441+08:00"
+    created: "2025-07-14T11:43:58.224119+08:00"
     description: Helm chart for Seafile Pro.
     digest: a27759911944f846b8f291287596159d48ca2ba3c0c81cb2a11f678ffa8f82b9
     home: https://seafile.com
@@ -243,4 +243,4 @@ entries:
     urls:
     - https://haiwen.github.io/seafile-helm-chart/repo/12.0/pro-12.0.tgz
     version: "12.0"
-generated: "2025-07-14T11:37:41.253394+08:00"
+generated: "2025-07-14T11:43:58.220606+08:00"
