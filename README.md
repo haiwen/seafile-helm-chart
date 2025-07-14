@@ -54,7 +54,7 @@ This is a public repository for storing charts related to quick deployment of Se
 
     ```sh
     helm repo add seafile https://haiwen.github.io/seafile-helm-chart/repo
-    helm upgrade --install seafile seafile/<seafile-version>/<ce, pro, cluster>[--releaseVersion] --namespace seafile --create-namespace --values my-values.yaml
+    helm upgrade --install seafile seafile/<ce, pro, cluster> --version <release version> --namespace seafile --create-namespace --values my-values.yaml
     ```
 
 >[!TIP]
@@ -68,7 +68,7 @@ This is a public repository for storing charts related to quick deployment of Se
 >   ```
 >- For `cluster`, you should disable `initMode` (i.e., set to `false`) after first-time startup, then upgrade the chart:
 >   ```sh
->   helm upgrade seafile seafile/cluster  --namespace seafile  --values my-values.yaml
+>   helm upgrade seafile seafile/cluster --version <release version> --namespace seafile  --values my-values.yaml
 >   ```
 
 ## Version Control
@@ -76,7 +76,7 @@ This is a public repository for storing charts related to quick deployment of Se
 By default, it will follow the latest Chart and the latest Seafile. If you want to use a different version of Seafile, you can use the following command to control the version:
 
 ```sh
-helm upgrade --install seafile seafile/ce-13.0  --namespace seafile --create-namespace --values my-values.yaml --version 1.0
+helm upgrade --install seafile seafile/ce --namespace seafile --create-namespace --values my-values.yaml --version 1.0
 ```
 
 and rollback to old version by:
