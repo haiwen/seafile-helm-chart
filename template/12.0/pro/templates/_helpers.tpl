@@ -15,9 +15,9 @@
         (not $config) 
         (eq ($config.disablePVC | default false) false)
     }}
-        true
+        {{- printf "true" }}
     {{- else }}
-        false
+        {{- printf "false" }}
     {{- end }}
 {{- end }}
 
