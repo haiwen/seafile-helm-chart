@@ -14,10 +14,10 @@
     {{- if or 
         (not $config) 
         (eq ($config.disablePVC | default false) false)
-    }}
-        true
-    {{- else }}
-        false
+    -}}
+    true
+    {{- else -}}
+    false
     {{- end }}
 {{- end }}
 
