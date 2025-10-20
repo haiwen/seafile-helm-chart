@@ -1,8 +1,8 @@
 {{/* Check image use or set by default  */}}
 {{- define "seafile.image" -}}
-    {{- if .Values.seafile.configs.image }}
+    {{- if .Values.seafile.configs.image -}}
         {{- printf "%s" .Values.seafile.configs.image }}
-    {{- else }}
+    {{- else -}}
         {{- printf "seafileltd/seafile-pro-mc:%s-latest" .Chart.AppVersion }}
     {{- end }}
 {{- end }}
@@ -14,18 +14,18 @@
     {{- if or 
         (not $config) 
         (eq ($config.disablePVC | default false) false)
-    }}
+    -}}
         {{- printf "true" }}
-    {{- else }}
+    {{- else -}}
         {{- printf "false" }}
     {{- end }}
 {{- end }}
 
 {{/* for storage size  */}}
 {{- define "seafile.seafileDataVolume.storage" -}}
-    {{- if and (.Values.seafile.configs.seafileDataVolume) (.Values.seafile.configs.seafileDataVolume.storage) }}
+    {{- if and (.Values.seafile.configs.seafileDataVolume) (.Values.seafile.configs.seafileDataVolume.storage) -}}
         {{- printf "%s" .Values.seafile.configs.seafileDataVolume.storage }}
-    {{- else }}
+    {{- else -}}
         {{- printf "10Gi" }}
     {{- end }}
 {{- end }}
