@@ -5,7 +5,7 @@ metadata:
   name: seafile-data
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: {{ include "seafile.seafileDataVolume.storage" . }}
