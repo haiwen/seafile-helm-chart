@@ -12,6 +12,7 @@ spec:
       labels:
         app: seafile-backend
     spec:
+      enableServiceLinks: false
       {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
       initContainers:  
         - name: set-ownership  
