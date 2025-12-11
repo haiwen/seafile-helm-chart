@@ -65,4 +65,4 @@ spec:
       {{- end }}
       restartPolicy: Always
       imagePullSecrets:
-        - name: regcred
+        - name: seafile-secret

@@ -1,0 +1,29 @@
+{{- if .Values.seafile.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+{{- with .Values.seafile.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+  name: seafile-ingress
+spec:
+{{- if .Values.seafile.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.seafile.ingress.ingressClassName }}
+{{- end }}  
+  tls:
+    - hosts:
+        - {{ .Values.seafile.ingress.url }}
+      secretName: seafile-tls
+  rules:
+  - host: {{ .Values.seafile.ingress.url }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: seafile
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end -}}

@@ -19,7 +19,7 @@ spec:
           image: busybox  
           command: ['sh', '-c', 'chown -R root:root /shared']  
           volumeMounts:  
-          - name: seafile-data  
+          - name: seafile-data2  
             mountPath: /shared
       {{- end }}
       containers:
@@ -47,7 +47,7 @@ spec:
             - containerPort: 80
           {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
           volumeMounts:
-            - name: seafile-data
+            - name: seafile-data2
               mountPath: /shared
             {{- range .Values.seafile.extraVolumes }}
             - name: {{ .name }}
@@ -63,9 +63,9 @@ spec:
           resources: {{- toYaml .Values.seafile.extraResources | nindent 12 }}
       {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
       volumes:
-        - name: seafile-data
+        - name: seafile-data2
           persistentVolumeClaim:
-            claimName: seafile-data
+            claimName: seafile-data2
         {{- range .Values.seafile.extraVolumes }}
         - name: {{ .name }}
           {{- toYaml .volumeInfo | nindent 10 }}
@@ -73,4 +73,4 @@ spec:
       {{- end }}
       restartPolicy: Always
       imagePullSecrets:
-        - name: regcred
+        - name: seafile-secret

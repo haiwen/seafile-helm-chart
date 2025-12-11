@@ -5,7 +5,10 @@ metadata:
 spec:
   selector:
     app: seafile
-  type: ClusterIP
+  type: {{ .Values.seafile.service.type }}
+  {{- if .Values.seafile.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.seafile.service.loadBalancerIP }}
+  {{- end }}
   ports:
     - protocol: TCP
       port: 80
