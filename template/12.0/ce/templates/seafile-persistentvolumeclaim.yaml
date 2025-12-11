@@ -11,3 +11,4 @@ spec:
     requests:
       storage: {{ .Values.seafile.configs.seafileDataVolume.storage }}
   volumeName: seafile-data
+{{- end }}
