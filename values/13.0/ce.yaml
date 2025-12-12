@@ -21,6 +21,7 @@ seafile:
     #JWT private key can be generated with the command "pwgen -s 40 1"
     jwtPrivateKey: CHANGEME!
     mysqlDbPassword: CHANGEME!
+    redisPassword: CHANGEME!
 
   # The following are to configure the ingress
   ingress:
