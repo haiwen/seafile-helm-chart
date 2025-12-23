@@ -2,6 +2,9 @@
 
 This is a public repository for storing charts related to quick deployment of Seafile using ***Helm***.
 
+>[!TIP]
+>If your K8S environment is planned to be deployed on NFS and you plan to use Nginx-Ingress in a Seafile 12.0 & 13.0 cluster, you can refer to the Forge repository provided by [Aleridia](https://github.com/Aleridia/seafile-helm-chart/tree/main).
+
 ## Deployment
 
 ### Preparation
