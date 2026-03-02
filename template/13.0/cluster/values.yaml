@@ -94,6 +94,8 @@ seafile:
     # for Seafile AI
     - name: ENABLE_SEAFILE_AI
       value: "false"
+    - name: ENABLE_FACE_RECOGNITION
+      value: "false"
     - name: SEAFILE_AI_SERVER_URL
       allowEmpty: true
 
