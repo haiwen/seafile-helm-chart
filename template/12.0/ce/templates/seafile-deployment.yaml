@@ -29,7 +29,7 @@ spec:
             - configMapRef:
                 name: seafile-env
             - secretRef:
-                name: seafile-secret
+                name: {{ .Values.seafile.existingSecret.name }}
 
             {{- /* extra envs */ -}}
             {{- if .Values.seafile.extraEnv }}

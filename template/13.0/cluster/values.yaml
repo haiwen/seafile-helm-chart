@@ -1,5 +1,7 @@
 seafile:
   initMode: true
+  existingSecret:
+    name: seafile-secret
   configs: {} # seafile container configurations, object
   env: {} # environment variables for seafile service, object
   secretsMap: {} # seafile services secrets env, object
@@ -114,4 +116,18 @@ seafile:
       initValue: true
     - name: CLUSTER_INIT_ES_PORT
       value: "9200"
-    
+
+# Ingress
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts: []
+  tls: []
+
+# Gateway API HTTPRoute
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs: []
+  hostnames: []
