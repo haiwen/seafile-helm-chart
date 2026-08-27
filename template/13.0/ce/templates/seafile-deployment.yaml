@@ -31,13 +31,13 @@ spec:
             - name: SEAFILE_AI_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: seafile-secret
+                  name: {{ .Values.seafile.existingSecret.name }}
                   key: JWT_PRIVATE_KEY
           envFrom:
             - configMapRef:
                 name: seafile-env
             - secretRef:
-                name: seafile-secret
+                name: {{ .Values.seafile.existingSecret.name }}
 
             {{- /* extra envs */ -}}
             {{- if .Values.seafile.extraEnv }}

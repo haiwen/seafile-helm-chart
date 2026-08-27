@@ -1,5 +1,7 @@
 seafile:
   initMode: true
+  existingSecret:
+    name: seafile-secret
 
   # The following are the configurations of seafile container
   configs:
@@ -54,3 +56,18 @@ seafile:
   extraResources: {}
   extraEnv: []
   extraVolumes: []
+
+# Ingress
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts: []
+  tls: []
+
+# Gateway API HTTPRoute
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs: []
+  hostnames: []
