@@ -25,8 +25,10 @@ This is a public repository for storing charts related to quick deployment of Se
         --from-literal=INIT_SEAFILE_ADMIN_PASSWORD='<required>' \
         --from-literal=INIT_SEAFILE_MYSQL_ROOT_PASSWORD='<required>' \
         --from-literal=REDIS_PASSWORD='' \
-        --from-literal=S3_SECRET_KEY='' \ 
-        --from-literal=S3_SSE_C_KEY='' 
+        --from-literal=S3_SECRET_KEY='' \
+        --from-literal=S3_SSE_C_KEY='' \
+        --from-literal=SEASEARCH_TOKEN='' \
+        --from-literal=ELASTICSEARCH_PASSWORD=''
 
     # for ce
     kubectl create secret generic seafile-secret --namespace seafile \
@@ -34,7 +36,7 @@ This is a public repository for storing charts related to quick deployment of Se
         --from-literal=SEAFILE_MYSQL_DB_PASSWORD='<required>' \
         --from-literal=INIT_SEAFILE_ADMIN_PASSWORD='<required>' \
         --from-literal=INIT_SEAFILE_MYSQL_ROOT_PASSWORD='<required>' \
-        --from-literal=REDIS_PASSWORD='' 
+        --from-literal=REDIS_PASSWORD=''
     ```
 
     where `JWT_PRIVATE_KEY` can get from `pwgen -s 40 1`
@@ -65,7 +67,7 @@ This is a public repository for storing charts related to quick deployment of Se
 >- After the first-time startup, you can remove all initial variables (i.e., `INIT_*`) and set `initMode` to `false`.
 
 >[!NOTE]
->- For `pro` edition, you should modify the hostname of ***Memcached*** and ***Elasticsearch*** after first-time startup according to [here](https://manual.seafile.com/latest/setup/k8s_single_node/#start-seafile-server), then restart the instances by 
+>- For `pro` edition, you should modify the hostname of ***Memcached*** / ***Redis*** and search backends (SeaSearch / Elasticsearch) if enabled after first-time startup according to [here](https://manual.seafile.com/latest/setup/k8s_single_node/#start-seafile-server), then restart the instances by 
 >   ```sh
 >   kubectl delete pod seafile -n seafile
 >   ```
@@ -93,3 +95,11 @@ helm rollback seafile -n seafile <revision>
 ```sh
 helm delete seafile --namespace seafile
 ```
+
+
+## Migration notes (13.0 → 14.0)
+
+- Secret keys must match container env names: use `S3_SECRET_KEY` / `S3_SSE_C_KEY` / `REDIS_PASSWORD` (do **not** use `INIT_S3_SECRET_KEY`).
+- Pro/Cluster may also store `SEASEARCH_TOKEN` and `ELASTICSEARCH_PASSWORD` in the same `seafile-secret`.
+- Cluster no longer uses `CLUSTER_INIT_ES_HOST` / `CLUSTER_INIT_ES_PORT`. Configure search via `ENABLE_SEARCH`, `SEARCH_ENGINE`, and `SEASEARCH_*` / `ELASTICSEARCH_*` instead.
+- `ENABLE_FACE_RECOGNITION` has been removed from chart values (14.0).

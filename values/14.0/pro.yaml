@@ -1,0 +1,109 @@
+seafile:
+  initMode: true
+  existingSecret:
+    name: seafile-secret
+
+  # The following are the configurations of seafile container
+  configs:
+    image: seafileltd/seafile-pro-mc:14.0-latest 
+    seafileDataVolume: 
+      storage: 10Gi
+  
+  # The following are environments of seafile services
+  env:
+    # for Seafile server
+    TIME_ZONE: "UTC"
+    SEAFILE_LOG_TO_STDOUT: "true"
+    SITE_ROOT: "/"
+    SEAFILE_SERVER_HOSTNAME: "<required>"
+    SEAFILE_SERVER_PROTOCOL: "https"
+
+    # for database
+    SEAFILE_MYSQL_DB_HOST: "<required>"
+    SEAFILE_MYSQL_DB_PORT: "3306"
+    SEAFILE_MYSQL_DB_USER: "seafile"
+    SEAFILE_MYSQL_DB_CCNET_DB_NAME: "ccnet_db"
+    SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: "seafile_db"
+    SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: "seahub_db"
+
+    # for cache
+    CACHE_PROVIDER: "redis"
+
+    ## for redis
+    REDIS_HOST: ""
+    REDIS_PORT: "6379"
+
+    ## for memcached
+    MEMCACHED_HOST: ""
+    MEMCACHED_PORT: "11211"
+
+    # S3
+    SEAF_SERVER_STORAGE_TYPE: "disk"
+    S3_COMMIT_BUCKET: ""
+    S3_FS_BUCKET: ""
+    S3_BLOCK_BUCKET: ""
+    S3_KEY_ID: ""
+    S3_USE_V4_SIGNATURE: "true"
+    S3_AWS_REGION: "us-east-1"
+    S3_HOST: ""
+    S3_USE_HTTPS: "true"
+    S3_PATH_STYLE_REQUEST: "false"
+
+    # for notification
+    ENABLE_NOTIFICATION_SERVER: "false"
+    NOTIFICATION_SERVER_URL: ""
+
+    # for seadoc
+    ENABLE_SEADOC: "false"
+    SEADOC_SERVER_URL: "" # only valid in ENABLE_SEADOC = true
+    
+    # for Seafile AI
+    ENABLE_SEAFILE_AI: "false"
+    SEAFILE_AI_SERVER_URL: ""
+
+    # for Metadata management / server
+    ENABLE_METADATA_MANAGEMENT: "false"
+    INNER_METADATA_SERVER_URL: ""
+    MD_FILE_COUNT_LIMIT: "100000"
+
+
+    # for search (Pro/Cluster; chart does not deploy search services)
+    ENABLE_SEARCH: "false"
+    SEARCH_ENGINE: "seasearch"
+    ENABLE_FULL_TEXT_SEARCH: "true"
+    SEASEARCH_URL: ""
+    ELASTICSEARCH_SCHEME: "http"
+    ELASTICSEARCH_HOST: ""
+    ELASTICSEARCH_PORT: "9200"
+    ELASTICSEARCH_USER: ""
+
+    # initialization (only valid in first-time deployment and initMode = true)
+
+    ## for Seafile admin
+    INIT_SEAFILE_ADMIN_EMAIL: "<required>"
+
+  # if you are using another secret name / key for seafile or mysql, please make correct the following fields:
+  #secretsMap:
+  #  DB_ROOT_PASSWD:  # Env's name
+  #    secret: seafile-secret # secret's name, `seafile-secret` if not specify
+  #    key: INIT_SEAFILE_MYSQL_ROOT_PASSWORD # secret's key, `Env's name` if not specify
+  
+  # extra configurations
+  extraResources: {}
+  extraEnv: []
+  extraVolumes: []
+
+# Ingress
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts: []
+  tls: []
+
+# Gateway API HTTPRoute
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs: []
+  hostnames: []
