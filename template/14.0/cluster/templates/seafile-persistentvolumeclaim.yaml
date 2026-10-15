@@ -5,7 +5,11 @@ metadata:
   name: seafile-data
 spec:
   accessModes:
+{{- if and .Values.seafile.configs.seafileDataVolume .Values.seafile.configs.seafileDataVolume.accessModes }}
+{{ toYaml .Values.seafile.configs.seafileDataVolume.accessModes | indent 4 }}
+{{- else }}
     - ReadWriteMany
+{{- end }}
   resources:
     requests:
       storage: {{ include "seafile.seafileDataVolume.storage" . }}
