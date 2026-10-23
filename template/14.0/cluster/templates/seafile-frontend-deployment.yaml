@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seafile-frontend
+spec:
+  replicas: {{ include "seafile.cluster.frontendNums" . }}
+  selector:
+    matchLabels:
+      app: seafile-frontend
+  template:
+    metadata:
+      labels:
+        app: seafile-frontend
+    spec:
+      enableServiceLinks: false
+      {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
+      initContainers:  
+        - name: set-ownership  
+          image: busybox  
+          command: ['sh', '-c', 'chown -R root:root /shared']  
+          volumeMounts:  
+          - name: seafile-data  
+            mountPath: /shared
+      {{- end }}
+      containers:
+        - name: seafile-frontend
+          image: {{ include "seafile.image" . }}
+          env:
+            - name: CLUSTER_INIT_MODE
+              value: {{ .Values.seafile.initMode | quote}}
+            - name: CLUSTER_SERVER
+              value: "true"
+            - name: CLUSTER_MODE
+              value: "frontend"
+            - name: SEAFILE_AI_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.seafile.existingSecret.name }}
+                  key: JWT_PRIVATE_KEY
+          envFrom:
+            - configMapRef:
+                name: seafile-env
+            - secretRef:
+                name: {{ .Values.seafile.existingSecret.name }}
+
+            {{- /* extra envs */ -}}
+            {{- if .Values.seafile.extraEnv.frontend }}
+              {{- toYaml .Values.seafile.extraEnv.frontend | nindent 12 }}
+            {{- end }}
+          ports:
+            - containerPort: 80
+          {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
+          volumeMounts:
+            - name: seafile-data
+              mountPath: /shared
+            {{- range .Values.seafile.extraVolumes.frontend }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+              {{- if .subPath }}
+              subPath: {{ .subPath }}
+              {{- end }}
+              {{- if .readOnly }}
+              readOnly: {{ .readOnly }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
+          resources: {{- toYaml .Values.seafile.extraResources.frontend | nindent 12 }}
+      {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
+      volumes:
+        - name: seafile-data
+          persistentVolumeClaim:
+            claimName: seafile-data
+        {{- range .Values.seafile.extraVolumes.frontend }}
+        - name: {{ .name }}
+          {{- toYaml .volumeInfo | nindent 10 }}
+        {{- end }}
+      {{- end }}
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: regcred
