@@ -11,6 +11,15 @@ seafile:
   extraEnv: []
   extraVolumes: []
 
+  # pod annotations (e.g. reloader.stakater.com/auto: "true"), object
+  podAnnotations: {}
+  # pod-level securityContext, object
+  podSecurityContext: {}
+  # securityContext for the seafile container, object
+  securityContext: {}
+  # securityContext for the set-ownership init container, object
+  initContainerSecurityContext: {}
+
   # Default
   presetEnv:
     # for Seafile server

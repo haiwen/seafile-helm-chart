@@ -11,13 +11,25 @@ spec:
     metadata:
       labels:
         app: seafile
+      {{- with .Values.seafile.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
     spec:
       enableServiceLinks: false
+      {{- with .Values.seafile.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
       initContainers:  
         - name: set-ownership  
           image: busybox  
           command: ['sh', '-c', 'chown -R root:root /shared']  
+          {{- with .Values.seafile.initContainerSecurityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           volumeMounts:  
           - name: seafile-data  
             mountPath: /shared
@@ -25,6 +37,10 @@ spec:
       containers:
         - name: seafile
           image: {{ include "seafile.image" . }}
+          {{- with .Values.seafile.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           env:
             - name: SEAF_SERVER_STORAGE_TYPE
               value: "disk"
