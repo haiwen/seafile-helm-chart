@@ -17,6 +17,23 @@ seafile:
     frontend: []
     backend: []
 
+  # pod annotations (e.g. reloader.stakater.com/auto: "true"), per role
+  podAnnotations:
+    frontend: {}
+    backend: {}
+  # pod-level securityContext, per role
+  podSecurityContext:
+    frontend: {}
+    backend: {}
+  # securityContext for the seafile container, per role
+  securityContext:
+    frontend: {}
+    backend: {}
+  # securityContext for the set-ownership init container, per role
+  initContainerSecurityContext:
+    frontend: {}
+    backend: {}
+
   # Default
   presetEnv:
     # for Seafile server
