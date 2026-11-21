@@ -8,6 +8,7 @@ seafile:
     image: seafileltd/seafile-pro-mc:14.0-latest 
     seafileDataVolume: 
       storage: 10Gi
+      # existingClaim: seafile-nfs-pvc  # Mount a pre-created PVC instead of creating one.
   
   # The following are environments of seafile services
   env:
