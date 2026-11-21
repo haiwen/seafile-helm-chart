@@ -1,3 +1,4 @@
+{{- $dataClaim := include "seafile.seafileDataVolume.claimName" . -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,7 +22,7 @@ spec:
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
+      {{- if include "seafile.seafileDataVolume.managed" . | eq "true" }}
       initContainers:  
         - name: set-ownership  
           image: busybox  
@@ -63,7 +64,7 @@ spec:
             {{- if .Values.seafile.extraEnv.backend }}
               {{- toYaml .Values.seafile.extraEnv.backend | nindent 12 }}
             {{- end }}
-          {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
+          {{- if $dataClaim }}
           volumeMounts:
             - name: seafile-data
               mountPath: /shared
@@ -79,11 +80,11 @@ spec:
             {{- end }}
           {{- end }}
           resources: {{- toYaml .Values.seafile.extraResources.backend | nindent 12 }}
-      {{- if include "seafile.seafileDataVolume.enabled" . | eq "true" }}
+      {{- if $dataClaim }}
       volumes:
         - name: seafile-data
           persistentVolumeClaim:
-            claimName: seafile-data
+            claimName: {{ $dataClaim | quote }}
         {{- range .Values.seafile.extraVolumes.backend }}
         - name: {{ .name }}
           {{- toYaml .volumeInfo | nindent 10 }}

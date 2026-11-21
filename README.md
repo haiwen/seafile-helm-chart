@@ -76,6 +76,22 @@ This is a public repository for storing charts related to quick deployment of Se
 >   helm upgrade seafile seafile/cluster --version <release version> --namespace seafile  --values my-values.yaml
 >   ```
 
+### Use an existing PVC (since 14.0)
+
+For CE, Pro, or Cluster, create and bind a PVC in the same namespace as your Helm release, then set its **PVC name** (not the PV name) in your values:
+
+```yaml
+seafile:
+  configs:
+    seafileDataVolume:
+      existingClaim: seafile-nfs-pvc
+```
+
+The chart mounts the claim at `/shared` without creating a PVC or running the `set-ownership` init container. Make sure the volume is writable by Seafile before deploying. Cluster mounts the same claim in the frontend and backend; use `ReadWriteMany` if they can run on different nodes. `existingClaim` takes precedence over `disablePVC`, and settings for the chart-created PVC (such as `storage` and `storageClassName`) do not apply.
+
+> [!WARNING]
+> When switching an existing release from a chart-managed PVC, Helm may delete the old PVC during the upgrade. Before switching, back up your data, verify the old PV's reclaim policy, and migrate the data to the external claim. Setting `existingClaim` does not migrate data or transfer ownership of an existing chart-managed PVC.
+
 ## Version Control
 
 By default, it will follow the latest Chart and the latest Seafile. If you want to use a different version of Seafile, you can use the following command to control the version:

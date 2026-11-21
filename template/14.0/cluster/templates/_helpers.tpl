@@ -7,18 +7,20 @@
     {{- end }}
 {{- end }}
 
-{{/* Check volume use or set by default  */}}
+{{/* Mount the existing claim, or fall back to the built-in claim when enabled. */}}
+{{- define "seafile.seafileDataVolume.claimName" -}}
+    {{- $config := .Values.seafile.configs.seafileDataVolume | default dict -}}
+    {{- if $config.existingClaim -}}
+        {{- $config.existingClaim -}}
+    {{- else if eq (include "seafile.seafileDataVolume.managed" .) "true" -}}
+        {{- print "seafile-data" -}}
+    {{- end -}}
+{{- end -}}
 
-{{- define "seafile.seafileDataVolume.enabled" -}}
-    {{- $config := .Values.seafile.configs.seafileDataVolume -}}
-    {{- if or 
-        (not $config) 
-        (eq ($config.disablePVC | default false) false)
-    -}}
-        {{- printf "true" }}
-    {{- else -}}
-        {{- printf "false" }}
-    {{- end }}
+{{/* Create and initialize the built-in PVC only when no existing claim is set. */}}
+{{- define "seafile.seafileDataVolume.managed" -}}
+    {{- $config := .Values.seafile.configs.seafileDataVolume | default dict -}}
+    {{- and (not $config.existingClaim) (not ($config.disablePVC | default false)) -}}
 {{- end }}
 
 {{/* for storage size  */}}
